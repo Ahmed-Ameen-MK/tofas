@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="K52LXkI1QWuhb37VrSIjf2abbsgOK21csY3tbUV8MbI" />
+    <title>TOFAS Practice Test | اختبار توفاس التجريبي | الصف الأول الثانوي | JavaScript</title>
+    <meta name="description" content="اختبار توفاس تجريبي في لغة جافا سكريبت للصف الأول الثانوي - 100 سؤال - اختبار تجريبي لتقييم مستوى الطلاب في JavaScript">
+    <meta name="keywords" content="توفاس, اختبار توفاس, جافا سكريبت, JavaScript, الصف الأول الثانوي, اختبار تجريبي, برمجة, TOFAS, اختبار جافا سكريبت">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://me-tp.qureo.education/favicon/favicon_48.png"/>
+
+
+    <!-- Popunder controlled manually - loaded on demand only -->
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط عامة */
+        :root {
+            --primary-blue: #1a73e8;
+            --secondary-blue: #0d62d9;
+            --light-blue: #e8f0fe;
+            --dark-blue: #0d47a1;
+            --accent-blue: #4285f4;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --background: #f8f9fa;
+            --white: #ffffff;
+            --success: #34a853;
+            --warning: #fbbc04;
+            --error: #ea4335;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* شريط التنقل */
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo h1 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .logo p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-right: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+
+        .nav a:hover {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+
+        .nav a:last-child {
+            margin-right: 0;
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content {
+            min-height: calc(100vh - 200px);
+        }
+
+        /* قسم البطل */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 60px 0;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature i {
+            font-size: 1.5rem;
+            color: var(--warning);
+        }
+
+        .produced-by {
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        .produced-by span {
+            font-weight: 700;
+            color: var(--warning);
+        }
+
+        .hero-action {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* زر الاهتزاز */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 1.5s infinite;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--warning);
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(251, 188, 4, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6a800;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(251, 188, 4, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+        }
+
+        .btn-tertiary {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-tertiary:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-text {
+            margin-left: 5px;
+        }
+
+        .btn-en {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* قسم عن الاختبار */
+        .about {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--warning);
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .warning {
+            background-color: #fff8e1;
+            border-right: 4px solid var(--warning);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .warning i {
+            color: var(--warning);
+            font-size: 1.5rem;
+        }
+
+        .topics {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .topics h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .topics ul {
+            list-style-type: none;
+        }
+
+        .topics li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .topics i {
+            color: var(--success);
+            margin-top: 3px;
+        }
+
+        /* تحديث قسم الاختبار */
+        .test-duration {
+            background-color: var(--light-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .test-duration i {
+            color: var(--warning);
+        }
+
+        /* قسم الاختبار */
+        .test-section {
+            padding: 40px 0;
+        }
+
+        .test-header {
+            background-color: var(--white);
+            padding: 25px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .test-info h2 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .progress-info {
+            margin-top: 15px;
+        }
+
+        .progress-info span {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-blue);
+            width: 5%;
+            transition: width 0.5s ease;
+        }
+
+        .test-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+        }
+
+        .question-container {
+            margin-bottom: 40px;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question-type {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .question-number {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background-color: var(--background);
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option:hover {
+            background-color: #f0f7ff;
+            border-color: var(--primary-blue);
+        }
+
+        .option.selected {
+            background-color: var(--light-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .option input {
+            width: 20px;
+            height: 20px;
+        }
+
+        .option label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* أزرار التنقل */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* قسم النتائج */
+        .results-section {
+            padding: 60px 0;
+        }
+
+        .results-content {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .results-header {
+            margin-bottom: 40px;
+        }
+
+        .results-header h2 {
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .score-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            border: 8px solid var(--primary-blue);
+        }
+
+        .circle span {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .results-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .result-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            min-width: 150px;
+        }
+
+        .result-item.correct {
+            background-color: rgba(52, 168, 83, 0.1);
+            border: 2px solid var(--success);
+        }
+
+        .result-item.wrong {
+            background-color: rgba(234, 67, 53, 0.1);
+            border: 2px solid var(--error);
+        }
+
+        .result-item.total {
+            background-color: rgba(26, 115, 232, 0.1);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .result-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .correct .result-value {
+            color: var(--success);
+        }
+
+        .wrong .result-value {
+            color: var(--error);
+        }
+
+        .total .result-value {
+            color: var(--primary-blue);
+        }
+
+        .result-message {
+            background-color: var(--light-blue);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        /* الشهادة */
+        .certificate {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f9f9f9, #ffffff);
+            border: 2px dashed var(--primary-blue);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .certificate-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .certificate-header h3 {
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .certificate-logo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--warning);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .certificate-logo i {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .certificate-body {
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .certificate-body p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .certificate-body span {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .certificate-date {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .certificate-footer {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .certificate-footer p {
+            color: var(--text-light);
+        }
+
+        /* قسم الأخطاء */
+        .mistakes-section {
+            padding: 60px 0;
+        }
+
+        .mistakes-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mistakes-header h2 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .mistakes-container {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .mistake-item {
+            border: 1px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        .mistake-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mistake-question {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .mistake-answer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .answer-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .answer-wrong {
+            background-color: rgba(234, 67, 53, 0.1);
+            border-right: 4px solid var(--error);
+        }
+
+        .answer-correct {
+            background-color: rgba(52, 168, 83, 0.1);
+            border-right: 4px solid var(--success);
+        }
+
+        .answer-item h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .mistakes-actions {
+            text-align: center;
+        }
+
+        /* الفوتر */
+        .footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .platform-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .platform-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .platform-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .platform-link i {
+            font-size: 1.2rem;
+        }
+
+        .qureo i {
+            color: #34a853;
+        }
+
+        .mobarmej i {
+            color: #fbbc04;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-logo h3 {
+            color: var(--warning);
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .footer-logo p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.5;
+        }
+
+        /* إعلانات البانر - عرض كامل */
+        .banner-ad-wrapper {
+            width: 100vw;
+            position: relative;
+            right: 50%;
+            left: 50%;
+            margin-right: -50vw;
+            margin-left: -50vw;
+            overflow: hidden;
+            background: #f0f0f0;
+            text-align: center;
+        }
+        .banner-ad-wrapper iframe {
+            width: 100% !important;
+            max-width: 100vw !important;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* مودال مشاهدة الإعلان */
+        .ad-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 99999;
+            align-items: center;
+            justify-content: center;
+        }
+        .ad-modal-overlay.active {
+            display: flex;
+        }
+        .ad-modal-box {
+            background: white;
+            border-radius: 16px;
+            padding: 35px 30px 25px;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            direction: rtl;
+        }
+        .ad-modal-box i.ad-icon {
+            font-size: 3rem;
+            color: var(--warning);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .ad-modal-box h3 {
+            color: var(--dark-blue);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .ad-modal-box p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .ad-modal-btn {
+            background: var(--warning);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 10px;
+            padding: 14px 30px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .ad-modal-btn:hover {
+            background: #e6a800;
+            transform: translateY(-2px);
+        }
+
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav a {
+                margin: 0 10px 10px;
+            }
+            
+            .hero-text h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 14px 28px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .navigation-buttons button {
+                width: 100%;
+            }
+            
+            .results-details {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .result-item {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .results-actions {
+                flex-direction: column;
+            }
+            
+            .results-actions button {
+                width: 100%;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .test-duration {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+            
+            .progress-bar {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>TOFAS Practice Test</h1>
+                <p>اختبار توفاس التجريبي</p>
+            </div>
+            <nav class="nav">
+                <a href="#" id="start-test-btn">الاختبار</a>
+                <a href="#about">عن الاختبار</a>
+                <a href="terms.html" target="_blank">شروط الاستخدام</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <main class="main-content">
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>اختبار توفاس التجريبي في جافا سكريبت</h2>
+                        <p class="subtitle">للصف الأول الثانوي - 20 سؤال اختياري</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-laptop-code"></i>
+                                <p>20 سؤال اختيار من متعدد</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-clock"></i>
+                                <p>30 دقيقة وقت الاختبار</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-award"></i>
+                                <p>شهادة عند تحقيق 80% أو أكثر</p>
+                            </div>
+                        </div>
+                        <div class="produced-by">
+                            <p>من إنتاج <span>eleccell software co</span></p>
+                        </div>
+                    </div>
+                    <div class="hero-action">
+                        <button class="btn btn-primary shake" id="start-btn">
+                            <span class="btn-text">ابدأ الاختبار</span>
+                            <span class="btn-en">Start</span>
+                            <i class="fas fa-play-circle"></i>
+                        </button>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number">20</span>
+                                <span class="stat-label">سؤال</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">60%</span>
+                                <span class="stat-label">نسبة النجاح</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">30</span>
+                                <span class="stat-label">دقيقة للاختبار</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- إعلان بانر عرض كامل -->
+        <div style="width: 100%; overflow: hidden; text-align: center; margin: 10px 0;"> 
+        <script type="text/javascript"> atOptions = { 'key' : 'ef9e0f52434b552a9ae71341f3156b2b', 'format' : 'iframe', 'height' : 60, 'width' : window.innerWidth || screen.width, 'params' : {} }; </script> 
+        <script type="text/javascript" src="//www.highperformanceformat.com/ef9e0f52434b552a9ae71341f3156b2b/invoke.js" ></script>
+        </div>
+        <!-- معلومات عن الاختبار -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">عن اختبار توفاس التجريبي</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>هذا الاختبار التجريبي مصمم لمساعدة طلاب الصف الأول الثانوي على التحضير لامتحان توفاس في مادة جافا سكريبت. يحتوي الاختبار على 20 سؤال اختيار من متعدد.</p>
+                        <p>لديك 30 دقيقة للإجابة على جميع الأسئلة. نسبة النجاح هي 60%، وعند تحقيق 80% أو أكثر تحصل على شهادة توفاس.</p>
+                        <div class="warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p><strong>ملاحظة:</strong> هذا الموقع ليس رسميًا ولا نضمن أن يكون الامتحان بنفس المواصفات. الموقع مصمم لمساعدة الطلاب على تقييم مستواهم.</p>
+                        </div>
+                    </div>
+                    <div class="topics">
+                        <h3>موضوعات الاختبار:</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> مقدمة في جافاسكربت ودورها في تطوير الويب</li>
+                            <li><i class="fas fa-check-circle"></i> المتغيرات (Variables) وأنواع البيانات</li>
+                            <li><i class="fas fa-check-circle"></i> العبارات الشرطية (Conditional Statements)</li>
+                            <li><i class="fas fa-check-circle"></i> الحلقات التكرارية (Loops)</li>
+                            <li><i class="fas fa-check-circle"></i> الدوال (Functions) وتنظيم الشيفرة</li>
+                            <li><i class="fas fa-check-circle"></i> التفاعل مع صفحة الويب (DOM)</li>
+                            <li><i class="fas fa-check-circle"></i> المصفوفات (Arrays) والكائنات (Objects)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- إعلان بانر عرض كامل -->
+        <div style="width: 100%; overflow: hidden; text-align: center; margin: 10px 0;">
+            <script type="text/javascript"> atOptions = { 'key' : 'ef9e0f52434b552a9ae71341f3156b2b', 'format' : 'iframe', 'height' : 60, 'width' : window.innerWidth || screen.width, 'params' : {} }; </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/ef9e0f52434b552a9ae71341f3156b2b/invoke.js" ></script>
+        </div>
+        <!-- شاشة الاختبار (ستظهر بعد النقر على ابدأ الاختبار) -->
+        <section class="test-section hidden" id="test-section">
+            <div class="container">
+                <div class="test-header">
+                    <div class="test-info">
+                        <h2>اختبار توفاس التجريبي</h2>
+                        <div class="test-duration">
+                            <i class="fas fa-clock"></i>
+                            <span>الوقت المتبقي: <span id="timer">30:00</span></span>
+                        </div>
+                        <div class="progress-info">
+                            <span id="current-question">1</span> من <span id="total-questions">20</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-content">
+                    <!-- السؤال -->
+                    <div class="question-container">
+                        <div class="question-header">
+                            <span class="question-type" id="question-type">اختياري</span>
+                            <span class="question-number">السؤال <span id="question-num">1</span></span>
+                        </div>
+                        <div class="question-text" id="question-text">
+                            <!-- سيتم إضافة نص السؤال هنا -->
+                        </div>
+                        
+                        <!-- خيارات الإجابة للأسئلة الاختيارية -->
+                        <div class="options-container" id="options-container">
+                            <!-- سيتم إضافة خيارات الإجابة هنا -->
+                        </div>
+                    </div>
+
+                    <!-- أزرار التنقل بين الأسئلة -->
+                    <div class="navigation-buttons">
+                        <button class="btn btn-secondary" id="prev-btn">
+                            <i class="fas fa-arrow-right"></i> السابق
+                        </button>
+                        <button class="btn btn-secondary" id="next-btn">
+                            التالي <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="btn btn-primary hidden" id="submit-test">
+                            إنهاء الاختبار <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- شاشة النتائج -->
+        <section class="results-section hidden" id="results-section">
+            <div class="container">
+                <div class="results-content">
+                    <div class="results-header">
+                        <h2>نتيجة اختبار توفاس التجريبي</h2>
+                        <div class="score-circle">
+                            <div class="circle">
+                                <span id="score-percentage">0%</span>
+                            </div>
+                            <p>نسبة النجاح</p>
+                        </div>
+                    </div>
+                    
+                    <div class="results-details">
+                        <div class="result-item correct">
+                            <span class="result-label">الإجابات الصحيحة:</span>
+                            <span class="result-value" id="correct-answers">0</span>
+                        </div>
+                        <div class="result-item wrong">
+                            <span class="result-label">الإجابات الخاطئة:</span>
+                            <span class="result-value" id="wrong-answers">0</span>
+                        </div>
+                        <div class="result-item total">
+                            <span class="result-label">إجمالي الأسئلة:</span>
+                            <span class="result-value" id="total-answered">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-message" id="result-message">
+                        <!-- رسالة النتيجة ستظهر هنا -->
+                    </div>
+                    
+                    <div class="results-actions">
+                        <button class="btn btn-primary" id="view-mistakes">
+                            <i class="fas fa-search"></i> عرض الأخطاء مع الإجابات الصحيحة
+                        </button>
+                        <button class="btn btn-secondary" id="retry-test">
+                            <i class="fas fa-redo"></i> إعادة الاختبار
+                        </button>
+                        <button class="btn btn-tertiary" id="back-to-home">
+                            <i class="fas fa-home"></i> العودة للرئيسية
+                        </button>
+                    </div>
+                    
+                    <!-- شهادة النجاح -->
+                    <div class="certificate hidden" id="certificate">
+                        <div class="certificate-content">
+                            <div class="certificate-header">
+                                <h3>شهادة إتمام اختبار توفاس</h3>
+                                <div class="certificate-logo">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                            </div>
+                            <div class="certificate-body">
+                                <p>تهانينا! لقد حصلت على نسبة <span id="certificate-score">80%</span> في اختبار توفاس التجريبي.</p>
+                                <p>هذه النتيجة تجعلك مؤهلاً للحصول على شهادة توفاس في الامتحان الحقيقي.</p>
+                                <p class="certificate-date">تاريخ الإنجاز: <span id="cert-date"></span></p>
+                            </div>
+                            <div class="certificate-footer">
+                                <p>موقع اختبار توفاس التجريبي</p>
+                                <p>من إنتاج eleccell software co</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم عرض الأخطاء -->
+        <section class="mistakes-section hidden" id="mistakes-section">
+            <div class="container">
+                <div class="mistakes-header">
+                    <h2>الأخطاء والإجابات الصحيحة</h2>
+                    <p>راجع أخطاءك وتعلم من الإجابات الصحيحة</p>
+                </div>
+                
+                <div class="mistakes-container" id="mistakes-container">
+                    <!-- سيتم عرض الأخطاء هنا -->
+                </div>
+                
+                <div class="mistakes-actions">
+                    <button class="btn btn-secondary" id="back-to-results">
+                        <i class="fas fa-arrow-right"></i> العودة للنتائج
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- مودال مشاهدة الإعلان -->
+    <div class="ad-modal-overlay" id="ad-modal-overlay">
+        <div class="ad-modal-box">
+            <i class="fas fa-play-circle ad-icon"></i>
+            <h3 id="ad-modal-title">من فضلك شاهد الإعلان</h3>
+            <p id="ad-modal-text">لمتابعة الاختبار، يرجى مشاهدة إعلان قصير واحد للدعم.</p>
+            <button class="ad-modal-btn" id="ad-modal-ok">
+                <i class="fas fa-hand-pointer"></i> اضغط هنا أو في أي مكان لمشاهدة الإعلان
+            </button>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>منصات تعليمية مفيدة</h3>
+                    <div class="platform-links">
+                        <a href="https://me-portal.qureo.education/login" target="_blank" class="platform-link qureo">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>منصة Qureo للبرمجة</span>
+                        </a>
+                        <a href="https://mobarmegeroad.netlify.app" target="_blank" class="platform-link mobarmej">
+                            <i class="fas fa-road"></i>
+                            <span>Mobarmege Road لتعلم البرمجة</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <h3>TOFAS Practice Test</h3>
+                        <p>اختبار توفاس التجريبي للصف الأول الثانوي</p>
+                    </div>
+                    <p class="copyright">© 2023 جميع الحقوق محفوظة لـ eleccell software co</p>
+                    <p class="disclaimer">هذا الموقع ليس رسميًا ولا نضمن أن يكون الامتحان بنفس المواصفات. الموقع للهدف معرفة مستواك.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript الكامل -->
+    <script>
+        // بيانات الأسئلة - 20 سؤال اختياري في جافا سكريبت
+        const questionsBank = [
+            {
+                id: 1,
+                type: 'mcq',
+                question: 'ما هي اللغة التي تضيف التفاعل لصفحات الويب؟',
+                options: ['HTML', 'CSS', 'JavaScript', 'Python'],
+                correctAnswer: 2
+            },
+            {
+                id: 2,
+                type: 'mcq',
+                question: 'أي من التالي يستخدم لتخزين قيمة في جافا سكريبت؟',
+                options: ['variable', 'function', 'loop', 'condition'],
+                correctAnswer: 0
+            },
+            {
+                id: 3,
+                type: 'mcq',
+                question: 'ما هي القيمة المنطقية التي تعني "صحيح"؟',
+                options: ['true', 'false', 'null', 'undefined'],
+                correctAnswer: 0
+            },
+            {
+                id: 4,
+                type: 'mcq',
+                question: 'ما هي دالة الطباعة في جافا سكريبت لعرض النص في وحدة التحكم؟',
+                options: ['print()', 'console.log()', 'write()', 'display()'],
+                correctAnswer: 1
+            },
+            {
+                id: 5,
+                type: 'mcq',
+                question: 'أي من العوامل التالية يستخدم للمقارنة بين قيمتين؟',
+                options: ['=', '==', ':=', '->'],
+                correctAnswer: 1
+            },
+            {
+                id: 6,
+                type: 'mcq',
+                question: 'ما نوع البيانات الذي يمثل سلسلة نصية؟',
+                options: ['Number', 'String', 'Boolean', 'Array'],
+                correctAnswer: 1
+            },
+            {
+                id: 7,
+                type: 'mcq',
+                question: 'كيف تعلن عن دالة في جافا سكريبت؟',
+                options: ['function myFunction()', 'def myFunction()', 'func myFunction()', 'method myFunction()'],
+                correctAnswer: 0
+            },
+            {
+                id: 8,
+                type: 'mcq',
+                question: 'ما هي البنية التي تسمح بتنفيذ كود بناءً على شرط؟',
+                options: ['Loop', 'Function', 'Variable', 'Conditional statement'],
+                correctAnswer: 3
+            },
+            {
+                id: 9,
+                type: 'mcq',
+                question: 'أي من التالي يمثل حلقة تكرارية؟',
+                options: ['if', 'else', 'for', 'switch'],
+                correctAnswer: 2
+            },
+            {
+                id: 10,
+                type: 'mcq',
+                question: 'ما هي الطريقة المستخدمة لإضافة عنصر إلى نهاية مصفوفة؟',
+                options: ['push()', 'pop()', 'shift()', 'unshift()'],
+                correctAnswer: 0
+            },
+            {
+                id: 11,
+                type: 'mcq',
+                question: 'ما هي الطريقة المستخدمة للوصول إلى عنصر HTML من خلال جافا سكريبت؟',
+                options: ['getElementById()', 'findElement()', 'selectElement()', 'accessElement()'],
+                correctAnswer: 0
+            },
+            {
+                id: 12,
+                type: 'mcq',
+                question: 'ما هو النموذج الذي يمثل هيكل صفحة الويب في جافا سكريبت؟',
+                options: ['BOM', 'DOM', 'COM', 'ROM'],
+                correctAnswer: 1
+            },
+            {
+                id: 13,
+                type: 'mcq',
+                question: 'أي من التالي يستخدم لتعليق سطر واحد في جافا سكريبت؟',
+                options: ['//', '/* */', '<!-- -->', '#'],
+                correctAnswer: 0
+            },
+            {
+                id: 14,
+                type: 'mcq',
+                question: 'ما هي الطريقة المستخدمة لتحويل سلسلة نصية إلى عدد؟',
+                options: ['toString()', 'parseInt()', 'toNumber()', 'convert()'],
+                correctAnswer: 1
+            },
+            {
+                id: 15,
+                type: 'mcq',
+                question: 'ما هي القيمة التي تعيدها دالة لا تحتوي على return؟',
+                options: ['null', '0', 'undefined', 'false'],
+                correctAnswer: 2
+            },
+            {
+                id: 16,
+                type: 'mcq',
+                question: 'ما هو الكود الصحيح لإنشاء متغير باسم "age" وقيمته 20؟',
+                options: ['var age = 20;', 'let age = 20;', 'const age = 20;', 'جميع ما سبق'],
+                correctAnswer: 3
+            },
+            {
+                id: 17,
+                type: 'mcq',
+                question: 'كيف تكتب تعليقًا من سطر واحد في JavaScript؟',
+                options: ['/* تعليق */', '// تعليق', '<!-- تعليق -->', '# تعليق'],
+                correctAnswer: 1
+            },
+            {
+                id: 18,
+                type: 'mcq',
+                question: 'ما هو الناتج من هذا الكود: console.log(2 + "2")؟',
+                options: ['4', '22', 'undefined', 'خطأ'],
+                correctAnswer: 1
+            },
+            {
+                id: 19,
+                type: 'mcq',
+                question: 'كيف تختبر إذا كان المتغير x يساوي 10؟',
+                options: ['if (x = 10)', 'if (x == 10)', 'if (x === 10)', 'الخياران 2 و 3'],
+                correctAnswer: 3
+            },
+            {
+                id: 20,
+                type: 'mcq',
+                question: 'ما هي الدالة التي تستخدم لإيقاف تنفيذ كود لوقت معين؟',
+                options: ['wait()', 'sleep()', 'setTimeout()', 'pause()'],
+                correctAnswer: 2
+            }
+        ];
+
+        // حالة التطبيق
+        let currentTest = {
+            questions: [],
+            currentQuestionIndex: 0,
+            answers: [],
+            startTime: null,
+            timerInterval: null,
+            timeLeft: 30 * 60 // 30 دقيقة (نصف ساعة)
+        };
+
+        // تهيئة التطبيق عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('تم تحميل الصفحة، جاري تهيئة التطبيق...');
+            
+            // تهيئة تاريخ الشهادة
+            const certDate = document.getElementById('cert-date');
+            if (certDate) {
+                const now = new Date();
+                certDate.textContent = now.toLocaleDateString('ar-EG');
+            }
+            
+            // إعداد مستمعي الأحداث
+            setupEventListeners();
+            
+            console.log('تم تهيئة التطبيق بنجاح');
+        });
+
+        // إعداد مستمعي الأحداث
+        function setupEventListeners() {
+            // زر ابدأ الاختبار الرئيسي
+            const startBtn = document.getElementById('start-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', startTest);
+                console.log('تم إعداد مستمع حدث لزر ابدأ الاختبار');
+            }
+            
+            // زر الاختبار في شريط التنقل
+            const startTestBtn = document.getElementById('start-test-btn');
+            if (startTestBtn) {
+                startTestBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    startTest();
+                });
+                console.log('تم إعداد مستمع حدث لزر الاختبار في الشريط');
+            }
+            
+            // أزرار التنقل
+            const prevBtn = document.getElementById('prev-btn');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', goToPreviousQuestion);
+            }
+            
+            const nextBtn = document.getElementById('next-btn');
+            if (nextBtn) {
+                nextBtn.addEventListener('click', goToNextQuestion);
+            }
+            
+            const submitTestBtn = document.getElementById('submit-test');
+            if (submitTestBtn) {
+                submitTestBtn.addEventListener('click', submitTest);
+            }
+            
+            // أزرار النتائج
+            const viewMistakesBtn = document.getElementById('view-mistakes');
+            if (viewMistakesBtn) {
+                viewMistakesBtn.addEventListener('click', viewMistakes);
+            }
+            
+            const retryTestBtn = document.getElementById('retry-test');
+            if (retryTestBtn) {
+                retryTestBtn.addEventListener('click', retryTest);
+            }
+            
+            const backToHomeBtn = document.getElementById('back-to-home');
+            if (backToHomeBtn) {
+                backToHomeBtn.addEventListener('click', backToHome);
+            }
+            
+            const backToResultsBtn = document.getElementById('back-to-results');
+            if (backToResultsBtn) {
+                backToResultsBtn.addEventListener('click', backToResults);
+            }
+            
+            console.log('تم إعداد جميع مستمعي الأحداث');
+        }
+
+        // ===== نظام إدارة البوب أندر =====
+        let popunderActive = false;       // هل الكود محمَّل ونشط الآن؟
+        let popunderScriptEl = null;      // مرجع لعنصر السكريبت المحمَّل
+        let popunderPending = null;       // الدالة التي ستُنفَّذ بعد اللمس
+
+        // تحميل سكريبت البوب أندر وتفعيله
+        function enablePopunder() {
+            if (popunderActive) return;
+            popunderActive = true;
+            popunderScriptEl = document.createElement('script');
+            popunderScriptEl.type = 'text/javascript';
+            popunderScriptEl.src = '//pl28221648.effectivegatecpm.com/f7/07/b0/f707b030809cab693c7897b081c5d3a7.js';
+            document.body.appendChild(popunderScriptEl);
+        }
+
+        // إيقاف وإزالة سكريبت البوب أندر
+        function disablePopunder() {
+            popunderActive = false;
+            if (popunderScriptEl && popunderScriptEl.parentNode) {
+                popunderScriptEl.parentNode.removeChild(popunderScriptEl);
+                popunderScriptEl = null;
+            }
+        }
+
+        // إظهار مودال الإعلان وتفعيل البوب أندر فوراً
+        function showAdModal(titleText, bodyText, callback) {
+            document.getElementById('ad-modal-title').textContent = titleText;
+            document.getElementById('ad-modal-text').textContent = bodyText;
+            document.getElementById('ad-modal-overlay').classList.add('active');
+            popunderPending = callback;
+
+            // تحميل الكود فور ظهور الرسالة
+            enablePopunder();
+
+            // استمع لأول لمس/ضغط في أي مكان على الشاشة
+            function onAnyTouch(e) {
+                // إزالة المستمع فوراً حتى لا يُنفَّذ مرة ثانية
+                document.removeEventListener('click', onAnyTouch, true);
+                document.removeEventListener('touchend', onAnyTouch, true);
+
+                // إخفاء الرسالة
+                document.getElementById('ad-modal-overlay').classList.remove('active');
+
+                // إيقاف البوب أندر بعد فتحه مرة واحدة
+                setTimeout(function() {
+                    disablePopunder();
+                }, 300);
+
+                // تنفيذ الإجراء المعلق (بدء الاختبار أو عرض النتيجة)
+                if (typeof popunderPending === 'function') {
+                    popunderPending();
+                    popunderPending = null;
+                }
+            }
+
+            // استخدم capture:true حتى يُنفَّذ قبل أي حدث آخر
+            document.addEventListener('click', onAnyTouch, true);
+            document.addEventListener('touchend', onAnyTouch, true);
+        }
+
+        // بدء الاختبار (بعد مشاهدة الإعلان)
+        function startTest() {
+            showAdModal(
+                'من فضلك شاهد الإعلان',
+                'لبدء الاختبار، يرجى مشاهدة إعلان قصير واحد للدعم.',
+                function() { doStartTest(); }
+            );
+        }
+
+        // بدء الاختبار الفعلي
+        function doStartTest() {
+            console.log('بدء الاختبار...');
+            
+            try {
+                // إخفاء الأقسام الأخرى وإظهار قسم الاختبار
+                document.getElementById('hero').classList.add('hidden');
+                document.getElementById('about').classList.add('hidden');
+                document.getElementById('results-section').classList.add('hidden');
+                document.getElementById('mistakes-section').classList.add('hidden');
+                document.getElementById('test-section').classList.remove('hidden');
+                
+                // إزالة الاهتزاز من الزر
+                const startBtn = document.getElementById('start-btn');
+                if (startBtn) {
+                    startBtn.classList.remove('shake');
+                }
+                
+                // إنشاء اختبار عشوائي من 20 سؤال
+                currentTest.questions = [...questionsBank].sort(() => Math.random() - 0.5).slice(0, 20);
+                currentTest.currentQuestionIndex = 0;
+                currentTest.answers = new Array(currentTest.questions.length).fill(null);
+                currentTest.startTime = new Date();
+                currentTest.timeLeft = 30 * 60; // 30 دقيقة
+                
+                console.log(`تم إنشاء اختبار بـ ${currentTest.questions.length} سؤال`);
+                
+                // بدء العداد
+                startTimer();
+                
+                // تحديث عرض السؤال الأول
+                updateQuestionDisplay();
+                
+                // التمرير إلى أعلى الصفحة
+                window.scrollTo(0, 0);
+                
+                console.log('الاختبار بدأ بنجاح!');
+                
+            } catch (error) {
+                console.error('خطأ في بدء الاختبار:', error);
+                alert('عذراً، حدث خطأ في بدء الاختبار. يرجى تحديث الصفحة والمحاولة مرة أخرى.');
+            }
+        }
+
+        // بدء العداد
+        function startTimer() {
+            // إيقاف العداد السابق إذا كان يعمل
+            if (currentTest.timerInterval) {
+                clearInterval(currentTest.timerInterval);
+            }
+            
+            // تحديث العداد فوراً
+            updateTimerDisplay();
+            
+            // تحديث العداد كل ثانية
+            currentTest.timerInterval = setInterval(() => {
+                currentTest.timeLeft--;
+                
+                if (currentTest.timeLeft <= 0) {
+                    clearInterval(currentTest.timerInterval);
+                    submitTest();
+                    return;
+                }
+                
+                // تحديث عرض العداد
+                updateTimerDisplay();
+                
+            }, 1000);
+        }
+
+        // تحديث عرض العداد
+        function updateTimerDisplay() {
+            const timerSpan = document.getElementById('timer');
+            if (!timerSpan) return;
+            
+            const minutes = Math.floor(currentTest.timeLeft / 60);
+            const seconds = currentTest.timeLeft % 60;
+            timerSpan.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // تغيير لون العداد عندما يقل الوقت عن 5 دقائق
+            if (currentTest.timeLeft <= 5 * 60) {
+                timerSpan.style.color = '#ea4335';
+                timerSpan.style.fontWeight = 'bold';
+            } else {
+                timerSpan.style.color = '';
+                timerSpan.style.fontWeight = '';
+            }
+        }
+
+        // تحديث عرض السؤال الحالي
+        function updateQuestionDisplay() {
+            if (!currentTest.questions || currentTest.questions.length === 0) {
+                console.error('لا توجد أسئلة في الاختبار!');
+                return;
+            }
+            
+            const currentQuestion = currentTest.questions[currentTest.currentQuestionIndex];
+            
+            // تحديث المعلومات العامة
+            document.getElementById('question-num').textContent = currentTest.currentQuestionIndex + 1;
+            document.getElementById('current-question').textContent = currentTest.currentQuestionIndex + 1;
+            document.getElementById('total-questions').textContent = currentTest.questions.length;
+            
+            // تحديث شريط التقدم
+            const progress = ((currentTest.currentQuestionIndex + 1) / currentTest.questions.length) * 100;
+            document.getElementById('progress-fill').style.width = `${progress}%`;
+            
+            // تحديث نص السؤال
+            document.getElementById('question-text').textContent = currentQuestion.question;
+            
+            // عرض الخيارات
+            displayOptions(currentQuestion);
+            
+            // تحديث حالة أزرار التنقل
+            document.getElementById('prev-btn').disabled = currentTest.currentQuestionIndex === 0;
+            
+            // إظهار زر إنهاء الاختبار عند آخر سؤال
+            const isLastQuestion = currentTest.currentQuestionIndex === currentTest.questions.length - 1;
+            if (isLastQuestion) {
+                document.getElementById('next-btn').classList.add('hidden');
+                document.getElementById('submit-test').classList.remove('hidden');
+            } else {
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('submit-test').classList.add('hidden');
+            }
+        }
+
+        // عرض خيارات السؤال الاختياري
+        function displayOptions(question) {
+            const optionsContainer = document.getElementById('options-container');
+            if (!optionsContainer) return;
+            
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // تحديد إذا كان هذا الخيار هو الإجابة المختارة
+                if (currentTest.answers[currentTest.currentQuestionIndex] === index) {
+                    optionElement.classList.add('selected');
+                }
+                
+                optionElement.innerHTML = `
+                    <input type="radio" id="option-${index}" name="option" value="${index}" 
+                        ${currentTest.answers[currentTest.currentQuestionIndex] === index ? 'checked' : ''}>
+                    <label for="option-${index}">${option}</label>
+                `;
+                
+                optionElement.addEventListener('click', () => {
+                    // إزالة التحديد من جميع الخيارات
+                    document.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // تحديد الخيار الجديد
+                    optionElement.classList.add('selected');
+                    optionElement.querySelector('input').checked = true;
+                    
+                    // حفظ الإجابة
+                    currentTest.answers[currentTest.currentQuestionIndex] = index;
+                });
+                
+                optionsContainer.appendChild(optionElement);
+            });
+        }
+
+        // الانتقال إلى السؤال السابق
+        function goToPreviousQuestion() {
+            if (currentTest.currentQuestionIndex > 0) {
+                currentTest.currentQuestionIndex--;
+                updateQuestionDisplay();
+            }
+        }
+
+        // الانتقال إلى السؤال التالي
+        function goToNextQuestion() {
+            if (currentTest.currentQuestionIndex < currentTest.questions.length - 1) {
+                currentTest.currentQuestionIndex++;
+                updateQuestionDisplay();
+            }
+        }
+
+        // تقديم الاختبار (بعد مشاهدة الإعلان)
+        function submitTest() {
+            // إيقاف العداد
+            if (currentTest.timerInterval) {
+                clearInterval(currentTest.timerInterval);
+            }
+            showAdModal(
+                'لمعرفة النتيجة شاهد الإعلان',
+                'لعرض نتيجتك، يرجى مشاهدة إعلان قصير واحد للدعم.',
+                function() { doShowResults(); }
+            );
+        }
+
+        // عرض النتائج الفعلي
+        function doShowResults() {
+            // حساب النتيجة
+            const results = calculateResults();
+            
+            // عرض قسم النتائج
+            document.getElementById('test-section').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            
+            // تحديث عرض النتائج
+            updateResultsDisplay(results);
+        }
+
+        // حساب النتائج
+        function calculateResults() {
+            let correct = 0;
+            let wrong = 0;
+            let totalAnsweredCount = 0;
+            
+            // تحليل الإجابات
+            currentTest.questions.forEach((question, index) => {
+                const userAnswer = currentTest.answers[index];
+                
+                if (userAnswer !== null) {
+                    totalAnsweredCount++;
+                    
+                    if (userAnswer === question.correctAnswer) {
+                        correct++;
+                    } else {
+                        wrong++;
+                    }
+                }
+            });
+            
+            const totalQuestions = currentTest.questions.length;
+            const score = totalQuestions > 0 ? (correct / totalQuestions) * 100 : 0;
+            const passed = score >= 60;
+            const certificateEarned = score >= 80;
+            
+            return {
+                correct,
+                wrong,
+                totalAnswered: totalAnsweredCount,
+                totalQuestions,
+                score,
+                passed,
+                certificateEarned
+            };
+        }
+
+        // تحديث عرض النتائج
+        function updateResultsDisplay(results) {
+            // تحديث الأرقام
+            document.getElementById('score-percentage').textContent = `${results.score.toFixed(1)}%`;
+            document.getElementById('correct-answers').textContent = results.correct;
+            document.getElementById('wrong-answers').textContent = results.wrong;
+            document.getElementById('total-answered').textContent = results.totalAnswered;
+            
+            // تحديث رسالة النتيجة
+            let message = '';
+            if (results.passed) {
+                message = `مبروك! لقد نجحت في الاختبار بنسبة ${results.score.toFixed(1)}%. `;
+                
+                if (results.certificateEarned) {
+                    message += 'لقد حصلت على شهادة توفاس!';
+                    document.getElementById('certificate').classList.remove('hidden');
+                    document.getElementById('certificate-score').textContent = `${results.score.toFixed(1)}%`;
+                } else {
+                    document.getElementById('certificate').classList.add('hidden');
+                    message += 'لكنك تحتاج إلى 80% على الأقل للحصول على الشهادة.';
+                }
+            } else {
+                message = `للأسف، لم تحقق نسبة النجاح المطلوبة (60%). نسبتك هي ${results.score.toFixed(1)}%. حاول مرة أخرى!`;
+                document.getElementById('certificate').classList.add('hidden');
+            }
+            
+            document.getElementById('result-message').textContent = message;
+        }
+
+        // عرض الأخطاء
+        function viewMistakes() {
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('mistakes-section').classList.remove('hidden');
+            
+            displayMistakes();
+        }
+
+        // عرض قائمة الأخطاء
+        function displayMistakes() {
+            const mistakesContainer = document.getElementById('mistakes-container');
+            if (!mistakesContainer) return;
+            
+            mistakesContainer.innerHTML = '';
+            
+            currentTest.questions.forEach((question, index) => {
+                const userAnswer = currentTest.answers[index];
+                const isCorrect = userAnswer === question.correctAnswer;
+                
+                if (!isCorrect && userAnswer !== null) {
+                    const mistakeItem = document.createElement('div');
+                    mistakeItem.className = 'mistake-item';
+                    
+                    const answerDetails = `
+                        <div class="answer-item answer-wrong">
+                            <h4>إجابتك:</h4>
+                            <p>${question.options[userAnswer] || 'لم تجب'}</p>
+                        </div>
+                        <div class="answer-item answer-correct">
+                            <h4>الإجابة الصحيحة:</h4>
+                            <p>${question.options[question.correctAnswer]}</p>
+                        </div>
+                    `;
+                    
+                    mistakeItem.innerHTML = `
+                        <div class="mistake-question">السؤال ${index + 1}: ${question.question}</div>
+                        <div class="mistake-answer">
+                            ${answerDetails}
+                        </div>
+                    `;
+                    
+                    mistakesContainer.appendChild(mistakeItem);
+                }
+            });
+            
+            if (mistakesContainer.children.length === 0) {
+                mistakesContainer.innerHTML = `
+                    <div class="mistake-item" style="text-align: center;">
+                        <p>لا توجد أخطاء! جميع إجاباتك صحيحة.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // إعادة الاختبار
+        function retryTest() {
+            document.getElementById('mistakes-section').classList.add('hidden');
+            doStartTest();
+        }
+
+        // العودة للصفحة الرئيسية
+        function backToHome() {
+            document.getElementById('results-section').classList.add('hidden');
+            document.getElementById('mistakes-section').classList.add('hidden');
+            document.getElementById('hero').classList.remove('hidden');
+            document.getElementById('about').classList.remove('hidden');
+            
+            // إعادة زر الاهتزاز
+            const startBtn = document.getElementById('start-btn');
+            if (startBtn) {
+                startBtn.classList.add('shake');
+            }
+        }
+
+        // العودة للنتائج من صفحة الأخطاء
+        function backToResults() {
+            document.getElementById('mistakes-section').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+<style></style>
+<script></script>
+<style></style>
+<script></script>
